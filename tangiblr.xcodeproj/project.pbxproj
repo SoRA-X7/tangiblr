@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F694E612C57886800A361A8 /* tangiblrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E602C57886800A361A8 /* tangiblrApp.swift */; };
+		4F694E632C57886800A361A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E622C57886800A361A8 /* ContentView.swift */; };
+		4F694E652C57886900A361A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F694E642C57886900A361A8 /* Assets.xcassets */; };
+		4F694E682C57886900A361A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F694E672C57886900A361A8 /* Preview Assets.xcassets */; };
+		4F694E722C57886A00A361A8 /* tangiblrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E712C57886A00A361A8 /* tangiblrTests.swift */; };
+		4F694E7C2C57886A00A361A8 /* tangiblrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E7B2C57886A00A361A8 /* tangiblrUITests.swift */; };
+		4F694E7E2C57886A00A361A8 /* tangiblrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E7D2C57886A00A361A8 /* tangiblrUITestsLaunchTests.swift */; };
+		4F694E8C2C57891500A361A8 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F694E8B2C57891500A361A8 /* FirebaseAnalyticsSwift */; };
+		4F694E8E2C57891500A361A8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4F694E8D2C57891500A361A8 /* FirebaseAuth */; };
+		4F694E902C57891500A361A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4F694E8F2C57891500A361A8 /* FirebaseFirestore */; };
+		4F694E922C57891500A361A8 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 4F694E912C57891500A361A8 /* FirebaseFunctions */; };
+		4F694E942C57891500A361A8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F694E932C57891500A361A8 /* FirebaseStorage */; };
+		4F694E972C578A0300A361A8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E962C578A0300A361A8 /* HomeView.swift */; };
+		4F694E992C578A7D00A361A8 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E982C578A7D00A361A8 /* CreatePostView.swift */; };
+		4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E9C2C578DFC00A361A8 /* Post.swift */; };
+		4FC1423F2C5E581000BBE5B4 /* DocRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1423E2C5E581000BBE5B4 /* DocRef.swift */; };
+		4FC142412C5F729B00BBE5B4 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142402C5F729B00BBE5B4 /* PostDetailsView.swift */; };
+		4FC142452C6090B400BBE5B4 /* DeviceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142442C6090B400BBE5B4 /* DeviceSettingsView.swift */; };
+		4FC142482C60916100BBE5B4 /* SensorDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142472C60916100BBE5B4 /* SensorDevice.swift */; };
+		4FC1424C2C60EFC600BBE5B4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1424B2C60EFC600BBE5B4 /* CameraView.swift */; };
+		4FC1424E2C60F63900BBE5B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC1424D2C60F63900BBE5B4 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F694E6E2C57886A00A361A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F694E552C57886800A361A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F694E5C2C57886800A361A8;
+			remoteInfo = tangiblr;
+		};
+		4F694E782C57886A00A361A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F694E552C57886800A361A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F694E5C2C57886800A361A8;
+			remoteInfo = tangiblr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4F694E5D2C57886800A361A8 /* tangiblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tangiblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F694E602C57886800A361A8 /* tangiblrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tangiblrApp.swift; sourceTree = "<group>"; };
+		4F694E622C57886800A361A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4F694E642C57886900A361A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F694E672C57886900A361A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4F694E6D2C57886A00A361A8 /* tangiblrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tangiblrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F694E712C57886A00A361A8 /* tangiblrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tangiblrTests.swift; sourceTree = "<group>"; };
+		4F694E772C57886A00A361A8 /* tangiblrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tangiblrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F694E7B2C57886A00A361A8 /* tangiblrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tangiblrUITests.swift; sourceTree = "<group>"; };
+		4F694E7D2C57886A00A361A8 /* tangiblrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tangiblrUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F694E962C578A0300A361A8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4F694E982C578A7D00A361A8 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		4F694E9C2C578DFC00A361A8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4FC1423E2C5E581000BBE5B4 /* DocRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocRef.swift; sourceTree = "<group>"; };
+		4FC142402C5F729B00BBE5B4 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
+		4FC142442C6090B400BBE5B4 /* DeviceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettingsView.swift; sourceTree = "<group>"; };
+		4FC142472C60916100BBE5B4 /* SensorDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDevice.swift; sourceTree = "<group>"; };
+		4FC142492C609EA000BBE5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4FC1424B2C60EFC600BBE5B4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4FC1424D2C60F63900BBE5B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F694E5A2C57886800A361A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F694E8C2C57891500A361A8 /* FirebaseAnalyticsSwift in Frameworks */,
+				4F694E8E2C57891500A361A8 /* FirebaseAuth in Frameworks */,
+				4F694E902C57891500A361A8 /* FirebaseFirestore in Frameworks */,
+				4F694E942C57891500A361A8 /* FirebaseStorage in Frameworks */,
+				4F694E922C57891500A361A8 /* FirebaseFunctions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F694E6A2C57886A00A361A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F694E742C57886A00A361A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F694E542C57886800A361A8 = {
+			isa = PBXGroup;
+			children = (
+				4F694E5F2C57886800A361A8 /* tangiblr */,
+				4F694E702C57886A00A361A8 /* tangiblrTests */,
+				4F694E7A2C57886A00A361A8 /* tangiblrUITests */,
+				4F694E5E2C57886800A361A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4F694E5E2C57886800A361A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F694E5D2C57886800A361A8 /* tangiblr.app */,
+				4F694E6D2C57886A00A361A8 /* tangiblrTests.xctest */,
+				4F694E772C57886A00A361A8 /* tangiblrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F694E5F2C57886800A361A8 /* tangiblr */ = {
+			isa = PBXGroup;
+			children = (
+				4FC142492C609EA000BBE5B4 /* Info.plist */,
+				4FC142462C60914C00BBE5B4 /* Services */,
+				4F694E9B2C578D7100A361A8 /* Repository */,
+				4F694E602C57886800A361A8 /* tangiblrApp.swift */,
+				4F694E622C57886800A361A8 /* ContentView.swift */,
+				4F694E952C5789F600A361A8 /* Views */,
+				4F694E642C57886900A361A8 /* Assets.xcassets */,
+				4FC1424D2C60F63900BBE5B4 /* GoogleService-Info.plist */,
+				4F694E662C57886900A361A8 /* Preview Content */,
+			);
+			path = tangiblr;
+			sourceTree = "<group>";
+		};
+		4F694E662C57886900A361A8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4F694E672C57886900A361A8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4F694E702C57886A00A361A8 /* tangiblrTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F694E712C57886A00A361A8 /* tangiblrTests.swift */,
+			);
+			path = tangiblrTests;
+			sourceTree = "<group>";
+		};
+		4F694E7A2C57886A00A361A8 /* tangiblrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F694E7B2C57886A00A361A8 /* tangiblrUITests.swift */,
+				4F694E7D2C57886A00A361A8 /* tangiblrUITestsLaunchTests.swift */,
+			);
+			path = tangiblrUITests;
+			sourceTree = "<group>";
+		};
+		4F694E952C5789F600A361A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F694E962C578A0300A361A8 /* HomeView.swift */,
+				4F694E982C578A7D00A361A8 /* CreatePostView.swift */,
+				4FC142402C5F729B00BBE5B4 /* PostDetailsView.swift */,
+				4FC142442C6090B400BBE5B4 /* DeviceSettingsView.swift */,
+				4FC1424B2C60EFC600BBE5B4 /* CameraView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4F694E9B2C578D7100A361A8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4F694E9C2C578DFC00A361A8 /* Post.swift */,
+				4FC1423E2C5E581000BBE5B4 /* DocRef.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4FC142462C60914C00BBE5B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4FC142472C60916100BBE5B4 /* SensorDevice.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F694E5C2C57886800A361A8 /* tangiblr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F694E812C57886A00A361A8 /* Build configuration list for PBXNativeTarget "tangiblr" */;
+			buildPhases = (
+				4F694E592C57886800A361A8 /* Sources */,
+				4F694E5A2C57886800A361A8 /* Frameworks */,
+				4F694E5B2C57886800A361A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tangiblr;
+			packageProductDependencies = (
+				4F694E8B2C57891500A361A8 /* FirebaseAnalyticsSwift */,
+				4F694E8D2C57891500A361A8 /* FirebaseAuth */,
+				4F694E8F2C57891500A361A8 /* FirebaseFirestore */,
+				4F694E912C57891500A361A8 /* FirebaseFunctions */,
+				4F694E932C57891500A361A8 /* FirebaseStorage */,
+			);
+			productName = tangiblr;
+			productReference = 4F694E5D2C57886800A361A8 /* tangiblr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F694E6C2C57886A00A361A8 /* tangiblrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F694E842C57886A00A361A8 /* Build configuration list for PBXNativeTarget "tangiblrTests" */;
+			buildPhases = (
+				4F694E692C57886A00A361A8 /* Sources */,
+				4F694E6A2C57886A00A361A8 /* Frameworks */,
+				4F694E6B2C57886A00A361A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F694E6F2C57886A00A361A8 /* PBXTargetDependency */,
+			);
+			name = tangiblrTests;
+			productName = tangiblrTests;
+			productReference = 4F694E6D2C57886A00A361A8 /* tangiblrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4F694E762C57886A00A361A8 /* tangiblrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F694E872C57886A00A361A8 /* Build configuration list for PBXNativeTarget "tangiblrUITests" */;
+			buildPhases = (
+				4F694E732C57886A00A361A8 /* Sources */,
+				4F694E742C57886A00A361A8 /* Frameworks */,
+				4F694E752C57886A00A361A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F694E792C57886A00A361A8 /* PBXTargetDependency */,
+			);
+			name = tangiblrUITests;
+			productName = tangiblrUITests;
+			productReference = 4F694E772C57886A00A361A8 /* tangiblrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F694E552C57886800A361A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					4F694E5C2C57886800A361A8 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					4F694E6C2C57886A00A361A8 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 4F694E5C2C57886800A361A8;
+					};
+					4F694E762C57886A00A361A8 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 4F694E5C2C57886800A361A8;
+					};
+				};
+			};
+			buildConfigurationList = 4F694E582C57886800A361A8 /* Build configuration list for PBXProject "tangiblr" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F694E542C57886800A361A8;
+			packageReferences = (
+				4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 4F694E5E2C57886800A361A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F694E5C2C57886800A361A8 /* tangiblr */,
+				4F694E6C2C57886A00A361A8 /* tangiblrTests */,
+				4F694E762C57886A00A361A8 /* tangiblrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F694E5B2C57886800A361A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F694E682C57886900A361A8 /* Preview Assets.xcassets in Resources */,
+				4F694E652C57886900A361A8 /* Assets.xcassets in Resources */,
+				4FC1424E2C60F63900BBE5B4 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F694E6B2C57886A00A361A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F694E752C57886A00A361A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F694E592C57886800A361A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FC1423F2C5E581000BBE5B4 /* DocRef.swift in Sources */,
+				4FC142482C60916100BBE5B4 /* SensorDevice.swift in Sources */,
+				4FC142412C5F729B00BBE5B4 /* PostDetailsView.swift in Sources */,
+				4FC1424C2C60EFC600BBE5B4 /* CameraView.swift in Sources */,
+				4F694E992C578A7D00A361A8 /* CreatePostView.swift in Sources */,
+				4F694E972C578A0300A361A8 /* HomeView.swift in Sources */,
+				4F694E632C57886800A361A8 /* ContentView.swift in Sources */,
+				4F694E612C57886800A361A8 /* tangiblrApp.swift in Sources */,
+				4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */,
+				4FC142452C6090B400BBE5B4 /* DeviceSettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F694E692C57886A00A361A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F694E722C57886A00A361A8 /* tangiblrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F694E732C57886A00A361A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F694E7E2C57886A00A361A8 /* tangiblrUITestsLaunchTests.swift in Sources */,
+				4F694E7C2C57886A00A361A8 /* tangiblrUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F694E6F2C57886A00A361A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F694E5C2C57886800A361A8 /* tangiblr */;
+			targetProxy = 4F694E6E2C57886A00A361A8 /* PBXContainerItemProxy */;
+		};
+		4F694E792C57886A00A361A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F694E5C2C57886800A361A8 /* tangiblr */;
+			targetProxy = 4F694E782C57886A00A361A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4F694E7F2C57886A00A361A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4F694E802C57886A00A361A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F694E822C57886A00A361A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tangiblr/Preview Content\"";
+				DEVELOPMENT_TEAM = LB9JJ975C9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tangiblr/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "I need it";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanoseil.tangiblr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F694E832C57886A00A361A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tangiblr/Preview Content\"";
+				DEVELOPMENT_TEAM = LB9JJ975C9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tangiblr/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "I need it";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanoseil.tangiblr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4F694E852C57886A00A361A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB9JJ975C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanoseil.tangiblrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tangiblr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tangiblr";
+			};
+			name = Debug;
+		};
+		4F694E862C57886A00A361A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB9JJ975C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanoseil.tangiblrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tangiblr.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tangiblr";
+			};
+			name = Release;
+		};
+		4F694E882C57886A00A361A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB9JJ975C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanoseil.tangiblrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tangiblr;
+			};
+			name = Debug;
+		};
+		4F694E892C57886A00A361A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LB9JJ975C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanoseil.tangiblrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tangiblr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F694E582C57886800A361A8 /* Build configuration list for PBXProject "tangiblr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F694E7F2C57886A00A361A8 /* Debug */,
+				4F694E802C57886A00A361A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F694E812C57886A00A361A8 /* Build configuration list for PBXNativeTarget "tangiblr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F694E822C57886A00A361A8 /* Debug */,
+				4F694E832C57886A00A361A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F694E842C57886A00A361A8 /* Build configuration list for PBXNativeTarget "tangiblrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F694E852C57886A00A361A8 /* Debug */,
+				4F694E862C57886A00A361A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F694E872C57886A00A361A8 /* Build configuration list for PBXNativeTarget "tangiblrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F694E882C57886A00A361A8 /* Debug */,
+				4F694E892C57886A00A361A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F694E8B2C57891500A361A8 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		4F694E8D2C57891500A361A8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		4F694E8F2C57891500A361A8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		4F694E912C57891500A361A8 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		4F694E932C57891500A361A8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F694E8A2C57891500A361A8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4F694E552C57886800A361A8 /* Project object */;
+}
