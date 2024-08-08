@@ -8,7 +8,8 @@
 import Foundation
 import CoreBluetooth
 
-public class SensorDevice: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+@Observable
+public class SensorDeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     private let LOCAL_NAME = "Contactile Sensor M5"
     private let SERVICE_UUID = CBUUID(string: "4b958953-4ff5-45e6-97f2-629170aec1f3")
     private let CHARACTERISTIC_UUID_SENSOR = CBUUID(string: "adad0876-f4d1-4189-8604-53ed049f386c")
@@ -23,6 +24,10 @@ public class SensorDevice: NSObject, CBCentralManagerDelegate, CBPeripheralDeleg
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil, options: nil)
         print(centralManager as Any)
+    }
+    
+    public func isConnected() -> Bool {
+        return peri != nil
     }
     
     public func getValue() -> Int32? {
@@ -56,7 +61,6 @@ public class SensorDevice: NSObject, CBCentralManagerDelegate, CBPeripheralDeleg
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let uuid = UUID(uuid: peripheral.identifier.uuid)
-//        print("Device \(uuid) found")
         if let localName = advertisementData[CBAdvertisementDataLocalNameKey] as? String {
             print("UUID=[\(uuid)] Name=[\(localName)]")
             if localName == LOCAL_NAME {
@@ -83,14 +87,14 @@ public class SensorDevice: NSObject, CBCentralManagerDelegate, CBPeripheralDeleg
     
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: (any Error)?) {
         sensorValue = characteristic.value?.withUnsafeBytes { $0.load( as: Int32.self ) } ?? 0
-        print(sensorValue)
-        
+//        print(sensorValue)
     }
     
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: (any Error)?) {
         print("Disconnection occured")
         self.peri = nil
         chList.removeAll()
+        central.scanForPeripherals(withServices: nil)
     }
     
     public func connect(_ to: CBPeripheral) {

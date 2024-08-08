@@ -8,9 +8,11 @@
 import Foundation
 import Firebase
 
-public struct Post : Codable {
+public struct Post : Codable, Equatable {
     public var user: String
     public var description: String
+    public var images: [String]
+    public var contactile: String
 //    public var createdAt: Date
 //    public var updatedAt: Date
     
@@ -19,6 +21,8 @@ public struct Post : Codable {
         self.user = "test001"
 //        self.createdAt = Date()
 //        self.updatedAt = self.createdAt
+        self.images = [""]
+        self.contactile = ""
     }
     
     public static func fetchFromFirestore() async throws -> [DocRef<Post>] {

@@ -22,10 +22,13 @@
 		4F694E972C578A0300A361A8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E962C578A0300A361A8 /* HomeView.swift */; };
 		4F694E992C578A7D00A361A8 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E982C578A7D00A361A8 /* CreatePostView.swift */; };
 		4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E9C2C578DFC00A361A8 /* Post.swift */; };
+		4F899BCA2C61EBB500F5BD8D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F899BC92C61EBB500F5BD8D /* AppState.swift */; };
+		4FAC72502C6356F8002C6A44 /* Contactile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC724F2C6356F8002C6A44 /* Contactile.swift */; };
+		4FAC72522C63DE1C002C6A44 /* PlayHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC72512C63DE1C002C6A44 /* PlayHaptic.swift */; };
 		4FC1423F2C5E581000BBE5B4 /* DocRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1423E2C5E581000BBE5B4 /* DocRef.swift */; };
 		4FC142412C5F729B00BBE5B4 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142402C5F729B00BBE5B4 /* PostDetailsView.swift */; };
 		4FC142452C6090B400BBE5B4 /* DeviceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142442C6090B400BBE5B4 /* DeviceSettingsView.swift */; };
-		4FC142482C60916100BBE5B4 /* SensorDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142472C60916100BBE5B4 /* SensorDevice.swift */; };
+		4FC142482C60916100BBE5B4 /* SensorDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC142472C60916100BBE5B4 /* SensorDeviceManager.swift */; };
 		4FC1424C2C60EFC600BBE5B4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC1424B2C60EFC600BBE5B4 /* CameraView.swift */; };
 		4FC1424E2C60F63900BBE5B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FC1424D2C60F63900BBE5B4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -61,10 +64,13 @@
 		4F694E962C578A0300A361A8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4F694E982C578A7D00A361A8 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		4F694E9C2C578DFC00A361A8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4F899BC92C61EBB500F5BD8D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4FAC724F2C6356F8002C6A44 /* Contactile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contactile.swift; sourceTree = "<group>"; };
+		4FAC72512C63DE1C002C6A44 /* PlayHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHaptic.swift; sourceTree = "<group>"; };
 		4FC1423E2C5E581000BBE5B4 /* DocRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocRef.swift; sourceTree = "<group>"; };
 		4FC142402C5F729B00BBE5B4 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		4FC142442C6090B400BBE5B4 /* DeviceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettingsView.swift; sourceTree = "<group>"; };
-		4FC142472C60916100BBE5B4 /* SensorDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDevice.swift; sourceTree = "<group>"; };
+		4FC142472C60916100BBE5B4 /* SensorDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDeviceManager.swift; sourceTree = "<group>"; };
 		4FC142492C609EA000BBE5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FC1424B2C60EFC600BBE5B4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		4FC1424D2C60F63900BBE5B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -127,11 +133,14 @@
 				4FC142462C60914C00BBE5B4 /* Services */,
 				4F694E9B2C578D7100A361A8 /* Repository */,
 				4F694E602C57886800A361A8 /* tangiblrApp.swift */,
+				4F899BC92C61EBB500F5BD8D /* AppState.swift */,
 				4F694E622C57886800A361A8 /* ContentView.swift */,
+				4FAC72512C63DE1C002C6A44 /* PlayHaptic.swift */,
 				4F694E952C5789F600A361A8 /* Views */,
 				4F694E642C57886900A361A8 /* Assets.xcassets */,
 				4FC1424D2C60F63900BBE5B4 /* GoogleService-Info.plist */,
 				4F694E662C57886900A361A8 /* Preview Content */,
+				4FAC724F2C6356F8002C6A44 /* Contactile.swift */,
 			);
 			path = tangiblr;
 			sourceTree = "<group>";
@@ -185,7 +194,7 @@
 		4FC142462C60914C00BBE5B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4FC142472C60916100BBE5B4 /* SensorDevice.swift */,
+				4FC142472C60916100BBE5B4 /* SensorDeviceManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -332,11 +341,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FC1423F2C5E581000BBE5B4 /* DocRef.swift in Sources */,
-				4FC142482C60916100BBE5B4 /* SensorDevice.swift in Sources */,
+				4FC142482C60916100BBE5B4 /* SensorDeviceManager.swift in Sources */,
 				4FC142412C5F729B00BBE5B4 /* PostDetailsView.swift in Sources */,
 				4FC1424C2C60EFC600BBE5B4 /* CameraView.swift in Sources */,
+				4FAC72522C63DE1C002C6A44 /* PlayHaptic.swift in Sources */,
 				4F694E992C578A7D00A361A8 /* CreatePostView.swift in Sources */,
+				4FAC72502C6356F8002C6A44 /* Contactile.swift in Sources */,
 				4F694E972C578A0300A361A8 /* HomeView.swift in Sources */,
+				4F899BCA2C61EBB500F5BD8D /* AppState.swift in Sources */,
 				4F694E632C57886800A361A8 /* ContentView.swift in Sources */,
 				4F694E612C57886800A361A8 /* tangiblrApp.swift in Sources */,
 				4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */,
