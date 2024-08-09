@@ -15,8 +15,13 @@ struct DeviceSettingsView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, World!!")
+
+            Text(global.dev.isConnected() ? "connected" : "disconnected")
+                .foregroundColor(global.dev.isConnected() ? .blue: .red)
+                .font(.largeTitle)
+
             Text("\(sensorValue)")
+                .font(.largeTitle)
         }.onReceive(timer, perform: { _ in
             sensorValue = global.dev.getValue() ?? 0
         })

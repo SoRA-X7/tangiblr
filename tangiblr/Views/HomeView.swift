@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseFirestore
+import FirebaseStorage
 
 struct HomeView: View {
     @State var posts: [DocRef<Post>] = []
@@ -14,12 +15,15 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack() {
-                List(posts) { post in
-                    NavigationLink(value: post.id) {
-                        Text(post.data.description)
+                ScrollView {
+                    List(posts) { post in
+                        Text("hello")
+//                        NavigationLink(value: post.id) {
+//                            ItemView(documentID: post.id)
+//                        }
+                    }.refreshable {
+                        posts = try! await Post.fetchFromFirestore()
                     }
-                }.refreshable {
-                    posts = try! await Post.fetchFromFirestore()
                 }
             }.task {
                 posts = try! await Post.fetchFromFirestore()
@@ -28,6 +32,20 @@ struct HomeView: View {
             }
         }
     }
+    
+
+    
+    func getImageByUrl(url: URL) -> UIImage{
+        do {
+            let data = try Data(contentsOf: url)
+            return UIImage(data: data)!
+        } catch let err {
+            print("Error : \(err.localizedDescription)")
+        }
+        return UIImage()
+    }
+    
+    
 }
 
 #Preview {
