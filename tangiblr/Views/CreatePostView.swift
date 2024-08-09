@@ -180,7 +180,9 @@ struct CreatePostView: View {
                 "images": [
                     imageSavedTo
                 ],
-                "contactile": contactile.toString()
+                "contactile": contactile.toString(),
+                "timestamp":Date()
+                
             ])
             print("document added with ID: \(result.documentID)")
         }

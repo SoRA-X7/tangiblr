@@ -13,6 +13,7 @@ public struct Post : Codable, Equatable {
     public var description: String
     public var images: [String]
     public var contactile: String
+    public var timestamp: Date
 //    public var createdAt: Date
 //    public var updatedAt: Date
     
@@ -23,6 +24,7 @@ public struct Post : Codable, Equatable {
 //        self.updatedAt = self.createdAt
         self.images = [""]
         self.contactile = ""
+        self.timestamp = Date()
     }
     
     public static func fetchFromFirestore() async throws -> [DocRef<Post>] {

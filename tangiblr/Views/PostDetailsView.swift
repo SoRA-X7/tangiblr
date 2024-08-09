@@ -21,9 +21,15 @@ struct PostDetailsView: View {
     
     var body: some View {
         VStack {
+            
+            
+            
+            
             if let post = post {
                 Text(post.user)
                 Text(post.description)
+                Text(date2str(date:post.timestamp))
+                
                 if let image = image {
                     Image(uiImage: image).resizable().frame(width: 350, height: 500).scaledToFit().clipped().gesture(dragGesture)
                 }
@@ -85,5 +91,14 @@ struct PostDetailsView: View {
             print("Error : \(err.localizedDescription)")
         }
         return UIImage()
+    }
+    
+    func date2str(date:Date) -> String{
+        let f = DateFormatter()
+        f.timeStyle = .medium
+        f.dateStyle = .medium
+        f.locale = Locale(identifier: "ja_JP")
+        
+        return f.string(from: date)
     }
 }

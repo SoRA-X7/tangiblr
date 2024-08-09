@@ -19,13 +19,8 @@ struct ItemView: View {
                 
                 Text(post.user)
                     .font(.headline)
-                    .foregroundColor(.primary)
+                    .foregroundColor(.white)
                 
-                
-                Text(post.description)
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    .lineLimit(2) // Limit the description length
                 
                 if let image = image {
                     Image(uiImage: image)
@@ -44,7 +39,7 @@ struct ItemView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.gray)
         .cornerRadius(15)
         .shadow(radius: 5)
         .task {
