@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BD0FCA02C65A0B5007D8ADD /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0FC9F2C65A0B5007D8ADD /* ItemView.swift */; };
+		1BD0FCA22C660028007D8ADD /* bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0FCA12C660028007D8ADD /* bookmark.swift */; };
 		4F694E612C57886800A361A8 /* tangiblrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E602C57886800A361A8 /* tangiblrApp.swift */; };
 		4F694E632C57886800A361A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E622C57886800A361A8 /* ContentView.swift */; };
 		4F694E652C57886900A361A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F694E642C57886900A361A8 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		1BD0FC9F2C65A0B5007D8ADD /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		1BD0FCA12C660028007D8ADD /* bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmark.swift; sourceTree = "<group>"; };
 		4F694E5D2C57886800A361A8 /* tangiblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tangiblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F694E602C57886800A361A8 /* tangiblrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tangiblrApp.swift; sourceTree = "<group>"; };
 		4F694E622C57886800A361A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				4FC142442C6090B400BBE5B4 /* DeviceSettingsView.swift */,
 				4FC1424B2C60EFC600BBE5B4 /* CameraView.swift */,
 				1BD0FC9F2C65A0B5007D8ADD /* ItemView.swift */,
+				1BD0FCA12C660028007D8ADD /* bookmark.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				4F694E972C578A0300A361A8 /* HomeView.swift in Sources */,
 				4F899BCA2C61EBB500F5BD8D /* AppState.swift in Sources */,
 				4F694E632C57886800A361A8 /* ContentView.swift in Sources */,
+				1BD0FCA22C660028007D8ADD /* bookmark.swift in Sources */,
 				4F694E612C57886800A361A8 /* tangiblrApp.swift in Sources */,
 				1BD0FCA02C65A0B5007D8ADD /* ItemView.swift in Sources */,
 				4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */,

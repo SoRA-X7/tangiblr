@@ -3,13 +3,13 @@ import FirebaseFirestore
 
 struct HomeView: View {
     @State var posts: [DocRef<Post>] = []
-
+    
     let columns = [
         GridItem(.flexible(), spacing: 16), // Adjust spacing between columns
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16)
     ]
-
+    
     var body: some View {
         NavigationStack {
             ScrollView {

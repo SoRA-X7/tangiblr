@@ -14,14 +14,14 @@ public struct Post : Codable, Equatable {
     public var images: [String]
     public var contactile: String
     public var timestamp: Date
-//    public var createdAt: Date
-//    public var updatedAt: Date
+    //    public var createdAt: Date
+    //    public var updatedAt: Date
     
     init(_ description: String) {
         self.description = description
         self.user = "test001"
-//        self.createdAt = Date()
-//        self.updatedAt = self.createdAt
+        //        self.createdAt = Date()
+        //        self.updatedAt = self.createdAt
         self.images = [""]
         self.contactile = ""
         self.timestamp = Date()

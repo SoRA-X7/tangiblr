@@ -1,104 +1,146 @@
-//
-//  PostDetailsView.swift
-//  tangiblr
-//
-//  Created by SoRA_X7 on 2024/08/04.
-//
-
 import SwiftUI
 import FirebaseStorage
 
 struct PostDetailsView: View {
-    var documentID: String;
+    var documentID: String
     
     @State var post: Post?
     @State var contactile: Contactile?
     @State var image: UIImage?
     
     @State var prevVal: Float? = nil
+    @State var bookmark:[String] = (UserDefaults.standard.array(forKey: "bookmark") ?? []) as! [String]
+
+    
     
     var player = PlayHaptic()
     
     var body: some View {
         VStack {
-            
-            
-            
-            
             if let post = post {
-                Text(post.user)
-                Text(post.description)
-                Text(date2str(date:post.timestamp))
+                HStack(alignment: .center, spacing: 8) {
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text(post.user)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        
+                        Text(date2str(date: post.timestamp))
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    Spacer() // スペースを使って要素を左寄せにする
+                }
+                .padding(.horizontal)
+                .padding(.top)
                 
                 if let image = image {
-                    Image(uiImage: image).resizable().frame(width: 350, height: 500).scaledToFit().clipped().gesture(dragGesture)
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                        .gesture(dragGesture)
                 }
+                
+                HStack {
+                    Text(post.description)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal)
+                        .padding(.top, 8)
                     
-            } else {
-                Text("Loading")
-            }
-        }.task {
-            post = try! await Post.load(documentID)
-            print(post)
-            if let post = post {
-                contactile = try! Contactile.fromJSON(post.contactile)
-            }
-            
-            guard let images = post?.images else {
-                image = nil
-                return
-            }
-            let storage = Storage.storage()
-            storage.reference().child(images[0]).downloadURL(completion: {(url, _) in
-                print(url)
-                if let url = url {
-                    image = getImageByUrl(url: url)
+                    Button(action: {
+                        if bookmark.contains(documentID) {
+                            bookmark.removeAll { $0 == documentID }
+                        } else {
+                            bookmark.append(documentID)
+                        }
+                        print(bookmark)
+                        UserDefaults.standard.set(bookmark, forKey: "bookmark")
+                        bookmark = (UserDefaults.standard.array(forKey: "bookmark") ?? []) as! [String]
+                        print(bookmark)
+                    }) {
+                        VStack {
+                            Image(systemName: bookmark.contains(documentID) ? "bookmark.fill" : "bookmark")
+                                .foregroundColor(.orange)
+                                .font(.system(size: 50)) // Adjust the size as needed
+                            Text("bookmark")
+                        }
+                    }
+                    .accentColor(.red)
+
+                    
+                    Spacer()
                 }
-            })
+            } else {
+                ProgressView("Loading...")
+            }
+        }
+        .task {
+            await loadPost()
         }
     }
     
     var dragGesture: some Gesture {
-            DragGesture()
-                .onChanged { e in
-                    let pos = min(500-1, max(0, Int(e.location.y)))
-                        if let contactile = contactile {
-                            let val = contactile.ext[0].data[pos]
-                            if let pv = prevVal {
-                                if abs(val - pv) > 0.2 {
-                                    do {
-                                        try! player.play(intensity: max(1, abs(val - pv) * 1.4))
-                                    } catch {
-                                        print("CH error")
-                                    }
-                                }
+        DragGesture()
+            .onChanged { e in
+                let pos = min(500 - 1, max(0, Int(e.location.y)))
+                if let contactile = contactile {
+                    let val = contactile.ext[0].data[pos]
+                    if let pv = prevVal {
+                        if abs(val - pv) > 0.2 {
+                            do {
+                                try player.play(intensity: max(1, abs(val - pv) * 1.4))
+                            } catch {
+                                print("CH error: \(error)")
                             }
-                            prevVal = val
                         }
-                        
-                    
+                    }
+                    prevVal = val
                 }
-                .onEnded { _ in
-                    prevVal = nil
-                }
-        }
+            }
+            .onEnded { _ in
+                prevVal = nil
+            }
+    }
     
-    func getImageByUrl(url: URL) -> UIImage{
+    func loadPost() async {
+        do {
+            post = try await Post.load(documentID)
+            if let post = post {
+                contactile = try Contactile.fromJSON(post.contactile)
+            }
+            if let images = post?.images, !images.isEmpty {
+                let storage = Storage.storage()
+                let url = try await storage.reference().child(images[0]).downloadURL()
+                image = getImageByUrl(url: url)
+            } else {
+                image = nil
+            }
+        } catch {
+            print("Error loading post: \(error.localizedDescription)")
+        }
+    }
+    
+    func getImageByUrl(url: URL) -> UIImage {
         do {
             let data = try Data(contentsOf: url)
-            return UIImage(data: data)!
-        } catch let err {
-            print("Error : \(err.localizedDescription)")
+            return UIImage(data: data) ?? UIImage()
+        } catch {
+            print("Error loading image: \(error.localizedDescription)")
+            return UIImage()
         }
-        return UIImage()
     }
     
-    func date2str(date:Date) -> String{
-        let f = DateFormatter()
-        f.timeStyle = .medium
-        f.dateStyle = .medium
-        f.locale = Locale(identifier: "ja_JP")
-        
-        return f.string(from: date)
+    func date2str(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .medium
+        formatter.locale = Locale(identifier: "ja_JP")
+        return formatter.string(from: date)
     }
 }
+
