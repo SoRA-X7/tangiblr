@@ -150,12 +150,24 @@ struct CreatePostView: View {
     private func record() {
         Task {
             recTime = 0
-            defer { recTime = nil }
+            global.dev.start()
+            defer {
+                recTime = nil
+                global.dev.stop()
+            }
             var arr: [Float] = []
+            var prevValue: Int32 = 0
             for i in 0..<500 {
-                let val = Float(global.dev.getValue() ?? 0) / 4096.0
-                arr.append(val)
-                recordDatas.append(RecordData(time: recTime ?? 0, contactile: val))
+                var values = global.dev.getValues() ?? []
+                if values.isEmpty {
+                    values.append(prevValue)
+                }
+                let sum = values.reduce(0, +)
+                let val = Float(sum) / Float(values.count)
+                print(val / 4096.0)
+                arr.append(val / 4096.0)
+                prevValue = Int32(val)
+                recordDatas.append(RecordData(time: recTime ?? 0, contactile: val / 4096.0))
                 try await Task.sleep(nanoseconds: 10 * 1000 * 1000) // 100Hz
                 recTime = Float(i) / 100.0
             }

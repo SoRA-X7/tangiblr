@@ -18,7 +18,8 @@ public class SensorDeviceManager: NSObject, CBCentralManagerDelegate, CBPeripher
     private var peri: CBPeripheral? = nil
     private var chList: [CBCharacteristic] = []
     
-    private var sensorValue: Int32 = 0
+    private var sensorValues: [Int32] = []
+    private var recording = false
     
     public override init() {
         super.init()
@@ -30,10 +31,13 @@ public class SensorDeviceManager: NSObject, CBCentralManagerDelegate, CBPeripher
         return peri != nil
     }
     
-    public func getValue() -> Int32? {
+    public func getValues() -> [Int32]? {
         if let sensCh = chList.first(where: { $0.uuid == CHARACTERISTIC_UUID_SENSOR }) {
             peri?.readValue(for: sensCh)
-            return sensorValue
+            defer {
+                sensorValues = []
+            }
+            return sensorValues
         }
         return nil
     }
@@ -85,9 +89,15 @@ public class SensorDeviceManager: NSObject, CBCentralManagerDelegate, CBPeripher
         print(chList)
     }
     
+//    public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: (any Error)?) {
+//        sensorValue = characteristic.value?.withUnsafeBytes { $0.load( as: Int32.self ) } ?? 0
+//    }
+    
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: (any Error)?) {
-        sensorValue = characteristic.value?.withUnsafeBytes { $0.load( as: Int32.self ) } ?? 0
-//        print(sensorValue)
+//        print(characteristic.value)
+        if recording {
+            sensorValues.append(characteristic.value?.withUnsafeBytes { $0.load( as: Int32.self ) } ?? 0)
+        }
     }
     
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: (any Error)?) {
@@ -101,6 +111,17 @@ public class SensorDeviceManager: NSObject, CBCentralManagerDelegate, CBPeripher
         to.delegate = self
         centralManager!.connect(to)
         peri = to
+    }
+    
+    public func start() {
+        recording = true
+        peri?.setNotifyValue(true, for: chList[0])
+    }
+    
+    public func stop() {
+        recording = false
+        peri?.setNotifyValue(false, for: chList[0])
+        sensorValues.removeAll()
     }
     
     deinit {

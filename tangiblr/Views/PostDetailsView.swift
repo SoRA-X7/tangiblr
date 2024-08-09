@@ -91,9 +91,9 @@ struct PostDetailsView: View {
                 if let contactile = contactile {
                     let val = contactile.ext[0].data[pos]
                     if let pv = prevVal {
-                        if abs(val - pv) > 0.2 {
+                        if abs(val - pv) > 0.02 {
                             do {
-                                try player.play(intensity: max(1, abs(val - pv) * 1.4))
+                                try player.play(intensity: min(1, abs(val - pv)))
                             } catch {
                                 print("CH error: \(error)")
                             }

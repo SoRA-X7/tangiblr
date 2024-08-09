@@ -22,7 +22,7 @@ class PlayHaptic {
     public func play(intensity: Float) throws -> Void {
         let pattern = try CHHapticPattern(events: [
             CHHapticEvent(eventType: .hapticTransient, parameters: [
-                CHHapticEventParameter(parameterID: .hapticIntensity, value: intensity),
+                CHHapticEventParameter(parameterID: .hapticIntensity, value: min(1, intensity * 3)),
                 CHHapticEventParameter(parameterID: .hapticSharpness, value: intensity),
             ], relativeTime: CHHapticTimeImmediate, duration: 1.0)
         ], parameters: [])

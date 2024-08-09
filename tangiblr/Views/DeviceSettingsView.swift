@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DeviceSettingsView: View {
     @EnvironmentObject var global: AppState
-    @State var sensorValue: Int32 = 0
+    @State var sensorValue: String = ""
     
-    let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
@@ -23,7 +23,12 @@ struct DeviceSettingsView: View {
             Text("\(sensorValue)")
                 .font(.largeTitle)
         }.onReceive(timer, perform: { _ in
-            sensorValue = global.dev.getValue() ?? 0
+            sensorValue = global.dev.getValues()?.description ?? ""
         })
+        .onAppear {
+            global.dev.start()
+        }.onDisappear {
+            global.dev.stop()
+        }
     }
 }
