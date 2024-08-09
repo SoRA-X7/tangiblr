@@ -2,6 +2,7 @@ import SwiftUI
 import FirebaseStorage
 
 struct PostDetailsView: View {
+    @EnvironmentObject var global: AppState
     var documentID: String
     
     @State var post: Post?
@@ -9,7 +10,7 @@ struct PostDetailsView: View {
     @State var image: UIImage?
     
     @State var prevVal: Float? = nil
-    @State var bookmark:[String] = (UserDefaults.standard.array(forKey: "bookmark") ?? []) as! [String]
+    
 
     
     
@@ -53,18 +54,16 @@ struct PostDetailsView: View {
                         .padding(.top, 8)
                     
                     Button(action: {
-                        if bookmark.contains(documentID) {
-                            bookmark.removeAll { $0 == documentID }
+                        if global.bookmark.contains(documentID) {
+                            global.bookmark.removeAll { $0 == documentID }
                         } else {
-                            bookmark.append(documentID)
+                            global.bookmark.append(documentID)
                         }
-                        print(bookmark)
-                        UserDefaults.standard.set(bookmark, forKey: "bookmark")
-                        bookmark = (UserDefaults.standard.array(forKey: "bookmark") ?? []) as! [String]
-                        print(bookmark)
+                        UserDefaults.standard.set(global.bookmark, forKey: "bookmark")
+                    
                     }) {
                         VStack {
-                            Image(systemName: bookmark.contains(documentID) ? "bookmark.fill" : "bookmark")
+                            Image(systemName: global.bookmark.contains(documentID) ? "bookmark.fill" : "bookmark")
                                 .foregroundColor(.orange)
                                 .font(.system(size: 50)) // Adjust the size as needed
                             Text("bookmark")

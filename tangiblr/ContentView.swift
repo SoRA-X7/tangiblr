@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var tabSelection = 1;
     @StateObject var global = AppState()
+
     
     var body: some View {
         TabView(selection: $tabSelection) {
