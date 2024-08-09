@@ -1,16 +1,9 @@
-//
-//  ItemView.swift
-//  tangiblr
-//
-//  Created by Daniel Ezomo on 2024/08/09.
-//
-
 import SwiftUI
 import FirebaseFirestore
 import FirebaseStorage
 
 struct ItemView: View {
-    var documentID: String;
+    var documentID: String
     
     @State var post: Post?
     @State var contactile: Contactile?
@@ -33,38 +26,47 @@ struct ItemView: View {
                 Text("Loading")
             }
         }.task {
-            post = try! await Post.load(documentID)
-//            print(post)
-            if let post = post {
-                contactile = try! Contactile.fromJSON(post.contactile)
-            }
-            
-            guard let images = post?.images else {
-                image = nil
-                return
-            }
-            let storage = Storage.storage()
-            storage.reference().child(images[0]).downloadURL(completion: {(url, _) in
-//                print(url)
-                if let url = url {
-                    image = getImageByUrl(url: url)
+            do {
+                post = try await Post.load(documentID)
+                if let post = post {
+                    contactile = try Contactile.fromJSON(post.contactile)
                 }
-            })
+                
+                guard let images = post?.images else {
+                    image = nil
+                    return
+                }
+                
+                let storage = Storage.storage()
+                let storageRef = storage.reference().child(images[0])
+                
+                storageRef.downloadURL { url, error in
+                    if let url = url {
+                        loadImageAsync(from: url)
+                    } else if let error = error {
+                        print("Error fetching image URL: \(error.localizedDescription)")
+                    }
+                }
+            } catch {
+                print("Error loading post: \(error.localizedDescription)")
+            }
         }
     }
     
-    
-    func getImageByUrl(url: URL) -> UIImage{
-        do {
-            let data = try Data(contentsOf: url)
-            return UIImage(data: data)!
-        } catch let err {
-            print("Error : \(err.localizedDescription)")
-        }
-        return UIImage()
+    func loadImageAsync(from url: URL) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data, let uiImage = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.image = uiImage
+                }
+            } else if let error = error {
+                print("Error loading image: \(error.localizedDescription)")
+            }
+        }.resume()
     }
 }
 
 //#Preview {
 //    ItemView(documentID: <#String#>)
 //}
+
