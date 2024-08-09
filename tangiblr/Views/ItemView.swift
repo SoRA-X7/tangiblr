@@ -14,18 +14,46 @@ struct ItemView: View {
     var player = PlayHaptic()
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 10) {
             if let post = post {
+                
                 Text(post.user)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                
                 Text(post.description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2) // Limit the description length
+                
                 if let image = image {
-                    Image(uiImage: image).resizable().frame(width: 100, height: 100).scaledToFit().clipped()
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 100)
+                        .clipped()
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
                 }
-                    
+                
             } else {
-                Text("Loading")
+                ProgressView("Loading...")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
-        }.task {
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(15)
+        .shadow(radius: 5)
+        .task {
+            loadData()
+        }
+    }
+    
+    func loadData() {
+        Task {
             do {
                 post = try await Post.load(documentID)
                 if let post = post {
@@ -66,7 +94,7 @@ struct ItemView: View {
     }
 }
 
-//#Preview {
-//    ItemView(documentID: <#String#>)
-//}
+#Preview {
+    ItemView(documentID: "sampleID")
+}
 
