@@ -104,7 +104,7 @@ struct CreatePostView: View {
         }
         .disabled(user.isEmpty || desc.isEmpty || image == nil || contactile == nil)
         .padding()
-        .background(Color.blue)
+        .background((user.isEmpty || desc.isEmpty || image == nil || contactile == nil) ? Color.gray  :Color.blue)
         .foregroundColor(.white)
         .cornerRadius(8)
     }

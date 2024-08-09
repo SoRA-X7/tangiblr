@@ -64,12 +64,13 @@ struct PostDetailsView: View {
                     }) {
                         VStack {
                             Image(systemName: global.bookmark.contains(documentID) ? "bookmark.fill" : "bookmark")
-                                .foregroundColor(.orange)
+                                .foregroundColor(.blue)
                                 .font(.system(size: 50)) // Adjust the size as needed
                             Text("bookmark")
+                            
                         }
                     }
-                    .accentColor(.red)
+                    .accentColor(.white)
 
                     
                     Spacer()
