@@ -39,7 +39,7 @@ struct CreatePostView: View {
                 
                 submitButton
                     .alert("送信されました", isPresented: $isShowAlert) {
-                        Button("OK", action: clear)
+                        Button("OK", action: {})
                     } message: {
                         Text("正常に送信されました")
                     }
@@ -201,6 +201,7 @@ struct CreatePostView: View {
                 "timestamp": Date()
             ])
             print("Document added with ID: \(result.documentID)")
+            clear()
         }
     }
     
