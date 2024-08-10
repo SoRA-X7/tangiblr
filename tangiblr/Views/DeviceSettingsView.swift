@@ -23,8 +23,12 @@ struct DeviceSettingsView: View {
             Text("\(sensorValue)")
                 .font(.largeTitle)
         }.onReceive(timer, perform: { _ in
-            sensorValue = global.dev.getValues()?.description ?? ""
-        })
+            let sensorValue_l = global.dev.getValues()
+            
+            if (sensorValue_l?.count ?? 0 > 0){
+                sensorValue = sensorValue_l?[0].description ?? ""
+            }
+                    })
         .onAppear {
             global.dev.start()
         }.onDisappear {
