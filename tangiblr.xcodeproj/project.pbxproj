@@ -26,6 +26,7 @@
 		4F694E972C578A0300A361A8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E962C578A0300A361A8 /* HomeView.swift */; };
 		4F694E992C578A7D00A361A8 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E982C578A7D00A361A8 /* CreatePostView.swift */; };
 		4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F694E9C2C578DFC00A361A8 /* Post.swift */; };
+		4F7B11262C69A54200443923 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B11252C69A54200443923 /* LocationService.swift */; };
 		4F899BCA2C61EBB500F5BD8D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F899BC92C61EBB500F5BD8D /* AppState.swift */; };
 		4FAC72502C6356F8002C6A44 /* Contactile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC724F2C6356F8002C6A44 /* Contactile.swift */; };
 		4FAC72522C63DE1C002C6A44 /* PlayHaptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAC72512C63DE1C002C6A44 /* PlayHaptic.swift */; };
@@ -72,6 +73,7 @@
 		4F694E962C578A0300A361A8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4F694E982C578A7D00A361A8 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		4F694E9C2C578DFC00A361A8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4F7B11252C69A54200443923 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		4F899BC92C61EBB500F5BD8D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4FAC724F2C6356F8002C6A44 /* Contactile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contactile.swift; sourceTree = "<group>"; };
 		4FAC72512C63DE1C002C6A44 /* PlayHaptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHaptic.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				4FC142472C60916100BBE5B4 /* SensorDeviceManager.swift */,
 				4F1850D52C69975600DF8F72 /* AuthService.swift */,
+				4F7B11252C69A54200443923 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				1BD0FCA02C65A0B5007D8ADD /* ItemView.swift in Sources */,
 				4F1850D62C69975600DF8F72 /* AuthService.swift in Sources */,
 				4F694E9D2C578DFC00A361A8 /* Post.swift in Sources */,
+				4F7B11262C69A54200443923 /* LocationService.swift in Sources */,
 				4FC142452C6090B400BBE5B4 /* DeviceSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

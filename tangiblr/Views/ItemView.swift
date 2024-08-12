@@ -11,8 +11,6 @@ struct ItemView: View {
     
     @State var prevVal: Float? = nil
     
-    var player = PlayHaptic()
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             if let post = post {
@@ -79,9 +77,9 @@ struct ItemView: View {
     func loadImageAsync(from url: URL) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data, let uiImage = UIImage(data: data) {
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     self.image = uiImage
-                }
+//                }
             } else if let error = error {
                 print("Error loading image: \(error.localizedDescription)")
             }

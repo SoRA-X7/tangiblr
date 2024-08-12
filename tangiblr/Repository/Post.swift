@@ -30,7 +30,7 @@ public struct Post : Codable, Equatable {
     public static func fetchFromFirestore() async throws -> [DocRef<Post>] {
         let firestore = Firestore.firestore()
         
-        let docs = try await firestore.collection("posts").getDocuments()
+        let docs = try await firestore.collection("posts").order(by: "timestamp", descending: true).getDocuments()
         
         return try docs.documents.map({ d in
             try DocRef(d.documentID, d.data(as: Post.self))

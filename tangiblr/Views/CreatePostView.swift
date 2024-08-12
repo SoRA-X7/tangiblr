@@ -2,6 +2,7 @@ import SwiftUI
 import FirebaseFirestore
 import FirebaseStorage
 import Charts
+import CoreLocation
 
 struct RecordData {
     let time: Float
@@ -13,6 +14,7 @@ struct CreatePostView: View {
     
     @State private var user = ""
     @State private var desc = ""
+    @State private var city = ""
     @State private var image: UIImage? = nil
     @State private var contactile: Contactile? = nil
     
@@ -24,6 +26,8 @@ struct CreatePostView: View {
     @State private var submitState = 0
     
     @State private var recordDatas: [RecordData] = []
+    
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         ScrollView {
@@ -51,6 +55,9 @@ struct CreatePostView: View {
             .sheet(isPresented: $showRecSheet) {
                 recordingSheetView
             }
+            .onAppear {
+                locationManager.requestLocation()
+            }
         }
         .scrollDismissesKeyboard(.immediately)
     }
@@ -65,10 +72,15 @@ struct CreatePostView: View {
             CheckmarkTextField(
                 placeholder: "Description",
                 text: $desc,
-                isValid: !desc.isEmpty
+                isValid: true
             )
+            CheckmarkTextField(placeholder: "Location", text: $city, isValid: !city.isEmpty)
         }
         .padding(.horizontal)
+        .onChange(of: locationManager.city) { _, newState in
+            print("onChange")
+            city = newState ?? ""
+        }
     }
     
     private var cameraSection: some View {
@@ -102,9 +114,9 @@ struct CreatePostView: View {
             submitPost()
             isShowAlert = true
         }
-        .disabled(user.isEmpty || desc.isEmpty || image == nil || contactile == nil)
+        .disabled(user.isEmpty || image == nil || contactile == nil)
         .padding()
-        .background((user.isEmpty || desc.isEmpty || image == nil || contactile == nil) ? Color.gray  :Color.blue)
+        .background((user.isEmpty || image == nil || contactile == nil) ? Color.gray  :Color.blue)
         .foregroundColor(.white)
         .cornerRadius(8)
     }

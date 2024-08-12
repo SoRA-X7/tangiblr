@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>ロケーション情報を用いて投稿します</string>
 	<key>NSCameraUsageDescription</key>
 	<string>カメラで写真を撮ります</string>
 	<key>UIBackgroundModes</key>
