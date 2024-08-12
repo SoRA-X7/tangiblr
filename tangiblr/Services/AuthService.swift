@@ -8,8 +8,8 @@
 import Foundation
 import FirebaseAuth
 
-@Observable
-class AuthService {
+
+class AuthService : ObservableObject {
     let auth = Auth.auth()
     
     var user: User? = nil

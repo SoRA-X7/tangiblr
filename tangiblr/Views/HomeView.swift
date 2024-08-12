@@ -2,6 +2,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct HomeView: View {
+    var filter: (String, Any)?
     @State var posts: [DocRef<Post>] = []
     
     let columns = [
@@ -11,11 +12,19 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        NavigationStack {
+        VStack {
+            if let filter = filter {
+                HStack {
+                    Text(filter.1 as? String ?? "").bold().font(.headline).padding()
+                    Spacer()
+                }
+            }
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) { // Adjust spacing between rows
                     ForEach(posts) { post in
-                        NavigationLink(value: post.id) {
+                        NavigationLink {
+                            PostDetailsView(documentID: post.id)
+                        } label: {
                             ItemView(documentID: post.id)
                                 .frame(height: 200) // Ensure a consistent height
                         }
@@ -23,20 +32,27 @@ struct HomeView: View {
                 }
                 .padding([.horizontal, .top], 16) // Add padding to the grid
                 .refreshable {
-                    posts = try! await Post.fetchFromFirestore()
+                    if let filter = filter {
+                        posts = try! await Post.fetchFromFirestore(filterFieldEq: filter.0, filterValue: filter.1)
+                    } else {
+                        posts = try! await Post.fetchFromFirestore()
+                    }
                 }
             }
             .task {
-                posts = try! await Post.fetchFromFirestore()
-            }
-            .navigationDestination(for: String.self) {
-                PostDetailsView(documentID: $0)
+                if let filter = filter {
+                    posts = try! await Post.fetchFromFirestore(filterFieldEq: filter.0, filterValue: filter.1)
+                } else {
+                    posts = try! await Post.fetchFromFirestore()
+                }
             }
         }
+        
+        
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(filter: nil)
 }
 

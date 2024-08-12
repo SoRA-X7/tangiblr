@@ -77,9 +77,15 @@ struct CreatePostView: View {
             CheckmarkTextField(placeholder: "Location", text: $city, isValid: !city.isEmpty)
         }
         .padding(.horizontal)
-        .onChange(of: locationManager.city) { _, newState in
-            print("onChange")
+        .onChange(of: locationManager.city) { newState in
             city = newState ?? ""
+        }
+        .onChange(of: global.auth.user) { newState in
+            user = newState?.uid ?? ""
+        }
+        .onAppear {
+            city = locationManager.city ?? ""
+            user = global.auth.user?.uid ?? ""
         }
     }
     
@@ -116,7 +122,7 @@ struct CreatePostView: View {
         }
         .disabled(user.isEmpty || image == nil || contactile == nil)
         .padding()
-        .background((user.isEmpty || image == nil || contactile == nil) ? Color.gray  :Color.blue)
+        .background((user.isEmpty || image == nil || contactile == nil) ? Color.gray : Color.blue)
         .foregroundColor(.white)
         .cornerRadius(8)
     }
@@ -210,7 +216,8 @@ struct CreatePostView: View {
                 "description": desc,
                 "images": [imageRef.fullPath],
                 "contactile": contactile.toString(),
-                "timestamp": Date()
+                "timestamp": Date(),
+                "city": city
             ])
             print("Document added with ID: \(result.documentID)")
             clear()

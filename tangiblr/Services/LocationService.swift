@@ -41,7 +41,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     if let loc = locationResponse.response.location.first {
                         self.city = loc.prefecture + loc.city + loc.town
                     }
-                    print(self.city)
+//                    print(self.city)
                 }
                 
             } catch let error {

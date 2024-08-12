@@ -10,11 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State var tabSelection = 1;
     @StateObject var global = AppState()
-
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            HomeView().tabItem {
+            RootHomeView().tabItem {
                 Label("Timeline", systemImage: "text.bubble")
             }.tag(1)
             bookmark().tabItem {

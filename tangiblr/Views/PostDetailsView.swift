@@ -10,9 +10,14 @@ struct PostDetailsView: View {
     @State var image: UIImage?
     
     @State var prevVal: Float? = nil
-    
-
-    
+    var filter: (String, Any)? {
+        if let post = post {
+            if let city = post.city {
+                return ("city", city)
+            }
+        }
+        return nil
+    }
     
     var player = PlayHaptic()
     
@@ -20,16 +25,18 @@ struct PostDetailsView: View {
         VStack {
             if let post = post {
                 HStack(alignment: .center, spacing: 8) {
-                    
-                    
                     VStack(alignment: .leading) {
                         Text(post.user)
                             .font(.headline)
                             .foregroundColor(.primary)
                         
-                        Text(date2str(date: post.timestamp))
-                            .font(.caption)
-                            .foregroundColor(.gray)
+                        NavigationLink {
+                            HomeView(filter: filter)
+                        } label: {
+                            Text(post.city ?? "")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
                     }
                     
                     Spacer() // スペースを使って要素を左寄せにする
@@ -41,10 +48,18 @@ struct PostDetailsView: View {
                     Image(uiImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, idealHeight: 500)
                         .clipped()
                         .gesture(dragGesture)
+                } else {
+                    Rectangle()
+                        .frame(maxWidth: .infinity, idealHeight: 500)
                 }
+                
+                Text(date2str(date: post.timestamp))
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
                 
                 HStack {
                     Text(post.description)
@@ -116,7 +131,7 @@ struct PostDetailsView: View {
             if let images = post?.images, !images.isEmpty {
                 let storage = Storage.storage()
                 let url = try await storage.reference().child(images[0]).downloadURL()
-                image = getImageByUrl(url: url)
+                loadImageAsync(from: url)
             } else {
                 image = nil
             }
@@ -125,14 +140,16 @@ struct PostDetailsView: View {
         }
     }
     
-    func getImageByUrl(url: URL) -> UIImage {
-        do {
-            let data = try Data(contentsOf: url)
-            return UIImage(data: data) ?? UIImage()
-        } catch {
-            print("Error loading image: \(error.localizedDescription)")
-            return UIImage()
-        }
+    func loadImageAsync(from url: URL) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data, let uiImage = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.image = uiImage
+                }
+            } else if let error = error {
+                print("Error loading image: \(error.localizedDescription)")
+            }
+        }.resume()
     }
     
     func date2str(date: Date) -> String {
@@ -142,5 +159,9 @@ struct PostDetailsView: View {
         formatter.locale = Locale(identifier: "ja_JP")
         return formatter.string(from: date)
     }
+}
+
+#Preview {
+    PostDetailsView(documentID: "0pG6m6UndHiZ1COBObVf").environmentObject(AppState())
 }
 

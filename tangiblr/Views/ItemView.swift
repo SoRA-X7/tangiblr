@@ -18,7 +18,7 @@ struct ItemView: View {
                 Text(post.user)
                     .font(.headline)
                     .foregroundColor(.white)
-                
+                    .lineLimit(1)
                 
                 if let image = image {
                     Image(uiImage: image)
@@ -77,9 +77,9 @@ struct ItemView: View {
     func loadImageAsync(from url: URL) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data, let uiImage = UIImage(data: data) {
-//                DispatchQueue.main.async {
+                DispatchQueue.main.async {
                     self.image = uiImage
-//                }
+                }
             } else if let error = error {
                 print("Error loading image: \(error.localizedDescription)")
             }

@@ -8,8 +8,7 @@
 import Foundation
 import CoreBluetooth
 
-@Observable
-public class SensorDeviceManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+public class SensorDeviceManager: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     private let LOCAL_NAME = "Contactile Sensor M5"
     private let SERVICE_UUID = CBUUID(string: "4b958953-4ff5-45e6-97f2-629170aec1f3")
     private let CHARACTERISTIC_UUID_SENSOR = CBUUID(string: "adad0876-f4d1-4189-8604-53ed049f386c")

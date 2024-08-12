@@ -14,23 +14,35 @@ public struct Post : Codable, Equatable {
     public var images: [String]
     public var contactile: String
     public var timestamp: Date
-    //    public var createdAt: Date
-    //    public var updatedAt: Date
+    public var city: String?
     
     init(_ description: String) {
         self.description = description
         self.user = "test001"
-        //        self.createdAt = Date()
-        //        self.updatedAt = self.createdAt
         self.images = [""]
         self.contactile = ""
         self.timestamp = Date()
+        self.city = ""
     }
     
     public static func fetchFromFirestore() async throws -> [DocRef<Post>] {
         let firestore = Firestore.firestore()
         
-        let docs = try await firestore.collection("posts").order(by: "timestamp", descending: true).getDocuments()
+        var query = firestore.collection("posts").order(by: "timestamp", descending: true)
+        
+        let docs = try await query.getDocuments()
+        
+        return try docs.documents.map({ d in
+            try DocRef(d.documentID, d.data(as: Post.self))
+        })
+    }
+    
+    public static func fetchFromFirestore(filterFieldEq filterField: String, filterValue: Any) async throws -> [DocRef<Post>] {
+        let firestore = Firestore.firestore()
+        
+        var query = firestore.collection("posts").whereField(filterField, isEqualTo: filterValue).order(by: "timestamp", descending: true)
+        
+        let docs = try await query.getDocuments()
         
         return try docs.documents.map({ d in
             try DocRef(d.documentID, d.data(as: Post.self))
