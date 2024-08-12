@@ -23,20 +23,9 @@ class PlayHaptic {
         let pattern = try CHHapticPattern(events: [
             CHHapticEvent(eventType: .hapticTransient, parameters: [
                 CHHapticEventParameter(parameterID: .hapticIntensity, value: min(1, intensity * 3)),
-                CHHapticEventParameter(parameterID: .hapticSharpness, value: intensity),
+                CHHapticEventParameter(parameterID: .hapticSharpness, value: pow(intensity, 1.4)),
             ], relativeTime: CHHapticTimeImmediate, duration: 1.0)
         ], parameters: [])
-//        let hapticDict = [
-//            CHHapticPattern.Key.pattern: [
-//                [CHHapticPattern.Key.event: [
-//                    CHHapticPattern.Key.eventType: CHHapticEvent.EventType.hapticTransient,
-//                    CHHapticPattern.Key.time: CHHapticTimeImmediate,
-//                    CHHapticPattern.Key.eventDuration: 1.0,
-//                ]
-//                ]
-//            ]
-//        ]
-//        let pattern = try CHHapticPattern(dictionary: hapticDict)
         let player = try engine.makePlayer(with: pattern)
         try! player.start(atTime: 0)
     }
